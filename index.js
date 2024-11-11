@@ -4,16 +4,12 @@ import Product from "./models/product.models.js";
 import productRoutes from './routes/product.route.js'
 
 const app = express();
+app.use(express.static('public'));
 app.use(express.json());
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
-
-app.get("/", (req, res) => {
-  res.send("Hello from node API");
-});
-
 
 //routes
 app.use("/api/products", productRoutes)
